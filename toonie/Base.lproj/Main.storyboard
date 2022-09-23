@@ -98,6 +98,9 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Sign Up"/>
+                                <connections>
+                                    <action selector="signUpTapped:" destination="7oO-Ar-PQH" eventType="touchUpInside" id="N86-te-HdT"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="utm-fu-AyT">
                                 <rect key="frame" x="84" y="428" width="229" height="48"/>
@@ -124,7 +127,7 @@
         <!--View Controller-->
         <scene sceneID="YhF-0Z-NJP">
             <objects>
-                <viewController id="ZKV-ZP-ffG" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="mainHome" useStoryboardIdentifierAsRestorationIdentifier="YES" id="ZKV-ZP-ffG" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="QXA-gi-x6R">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
