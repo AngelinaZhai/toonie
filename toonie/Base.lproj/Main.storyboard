@@ -124,10 +124,10 @@
             </objects>
             <point key="canvasLocation" x="730.43478260869574" y="93.75"/>
         </scene>
-        <!--View Controller-->
+        <!--Main Page View Controller-->
         <scene sceneID="YhF-0Z-NJP">
             <objects>
-                <viewController storyboardIdentifier="mainHome" useStoryboardIdentifierAsRestorationIdentifier="YES" id="ZKV-ZP-ffG" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="mainHome" useStoryboardIdentifierAsRestorationIdentifier="YES" id="ZKV-ZP-ffG" customClass="MainPageViewController" customModule="toonie" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="QXA-gi-x6R">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -139,6 +139,15 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fJ5-ls-bnL">
+                                <rect key="frame" x="169" y="476" width="76" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Log Out"/>
+                                <connections>
+                                    <action selector="logOutTapped:" destination="ZKV-ZP-ffG" eventType="touchUpInside" id="44e-Pj-3TA"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="73w-Di-fg6"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -147,6 +156,21 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TiR-WY-KoY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1448" y="94"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="J0O-cZ-v5Y">
+            <objects>
+                <viewController id="zOq-Ma-GOe" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="pQI-gm-BTT">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="q43-GN-eoK"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ttY-hO-YiW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2207" y="94"/>
         </scene>
     </scenes>
     <resources>

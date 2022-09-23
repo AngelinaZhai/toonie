@@ -16,6 +16,11 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        checkUserInfo() //checks if current user is logged in
+        
+    }
 
     @IBAction func loginTapped(_ sender: Any) {
         validateFields()
