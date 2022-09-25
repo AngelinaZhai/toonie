@@ -8,5 +8,6 @@ target 'toonie' do
   # Pods for toonie
 pod 'FirebaseAuth'
 pod 'FirebaseFirestore'
+pod 'Firebase/Database'
 
 end
