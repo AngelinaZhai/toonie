@@ -8,6 +8,7 @@
 import UIKit
 import FirebaseAuth
 import FirebaseCore
+import FirebaseDatabase
 
 class SignupViewController: UIViewController {
 
@@ -30,6 +31,7 @@ class SignupViewController: UIViewController {
             //alert add here
             return
         }
+        initUserEntry(with: email.text!)
         signup()
     }
     
@@ -57,5 +59,16 @@ class SignupViewController: UIViewController {
             self.present(vc, animated: true)
             
         }
+    }
+    
+    func initUserEntry(with email: String){
+        //imports database reference
+        let ref = Database.database().reference()
+        //changes string to secure type
+        var safeEmail = email.replacingOccurrences(of: ".", with: "!")
+        safeEmail = safeEmail.replacingOccurrences(of: "@", with: "!")
+        
+        //makes user entry
+        ref.child(safeEmail).setValue(["total":0])
     }
 }

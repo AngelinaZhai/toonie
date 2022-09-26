@@ -9,13 +9,61 @@ import UIKit
 import FirebaseAuth
 import FirebaseDatabase
 
-class MainPageViewController: UIViewController {
+//let ref = Database.database().reference()
 
+class MainPageViewController: UIViewController {
+    
+    @IBOutlet weak var totalLabel: UILabel!
+    var ref:DatabaseReference!
+    var total:Int! = 0
+    var safeEmail:String!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        ref = Database.database().reference()
 
+        let userEmail = Auth.auth().currentUser?.email
+        self.safeEmail = userEmail!.replacingOccurrences(of: ".", with: "!")
+        self.safeEmail = safeEmail.replacingOccurrences(of: "@", with: "!")
+        
+//        getTotalFromDB()
+        
+        self.ref.child(self.safeEmail).observe(.value, with: {(snapshot) in
+                                                          if let dictionary = snapshot.value as? [String:Int]{
+            self.total = dictionary["total"]
+            
+                                                          }})
+        
+        displayTotal()
+        
+
+        
         // Do any additional setup after loading the view.
+//        let ref = Database.database().reference()
+//        ref.child("someid/name").setValue()
     }
+    
+    func getTotalFromDB(){
+        
+        self.ref.child(self.safeEmail).observe(.value, with: {(snapshot) in
+                                                          if let dictionary = snapshot.value as? [String:Int]{
+            self.total = dictionary["total"]!
+            
+                                                          }})
+//        self.total = dictionary["total"]!
+    }
+    
+    @IBAction func addToonie(_ sender: Any) {
+        let newTotal = self.total + 2
+        //send new total to firebase
+        let directory = self.safeEmail+"/total"
+        self.ref.child(directory).setValue(newTotal)
+//        ref.child(userEmail+"/value").setValue(newTotal)
+//        self.totalLabel.text="Total: $" + String(newTotal)
+        self.total = newTotal
+        displayTotal()
+    }
+    
     
     @IBAction func logOutTapped(_ sender: Any) {
         let firebaseAuth = Auth.auth()
@@ -37,6 +85,10 @@ class MainPageViewController: UIViewController {
         print("back to home")
         vc.modalPresentationStyle = .overFullScreen
         present(vc, animated: true)
+    }
+    
+    func displayTotal(){
+        self.totalLabel.text = String(format: "%d", self.total)
     }
     
     /*
